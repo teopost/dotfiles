@@ -7,7 +7,7 @@
 Clone the repository in `~/.dotfiles`. Launch the bootstrapper script copy the files to your home folder.
 
 ```bash
-git clone https://github.com/teopost/dotfiles.git .dotfiles && cd dotfiles && source bootstrap.sh
+git clone https://github.com/teopost/dotfiles.git .dotfiles && cd .dotfiles && ./bootstrap.sh
 ```
 
 To copy dotfiles from repository to home directory, `cd` into your local `.dotfiles` repository and then:
@@ -28,15 +28,15 @@ Alternatively, to update while avoiding the confirmation prompt:
 When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course):
 
 ```bash
-brew bundle ~/Brewfile
+brew bundle ~/.dotfiles/Brewfile
 ```
 
-### Install native apps with `brew cask`
+### Install apps with `brew cask`
 
 You could also install native apps with [`brew cask`](https://github.com/phinze/homebrew-cask):
 
 ```bash
-brew bundle ~/Caskfile
+brew bundle ~/.dotfiles/Caskfile
 ```
 
 ## Feedback
