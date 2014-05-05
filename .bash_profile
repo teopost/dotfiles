@@ -1,3 +1,7 @@
+# Some good sources
+# http://natelandau.com/my-mac-osx-bash_profile/
+
+
 # Add `~/bin` to the `$PATH`
 # dotfile: destination=~/.bash_profile
 
@@ -11,6 +15,7 @@ if [ -d "$HOME/bin" ]; then
 fi
 
 alias l='ls -lisa'
+alias myip='curl ip.appspot.com'
 
 function lazygit() {
     git add .
