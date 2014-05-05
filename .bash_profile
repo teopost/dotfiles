@@ -15,10 +15,16 @@ if [ -d "$HOME/bin" ]; then
 fi
 
 alias l='ls -lisa'
-alias myip='curl ip.appspot.com'
 
 function lazygit() {
     git add .
     git commit -a -m "$1"
     git push
 }
+
+
+function myip() {
+    echo "wan: " $(curl -s ip.appspot.com)
+    echo "lan: " $(ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d " " -f2)
+}
+
