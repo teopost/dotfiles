@@ -6,7 +6,7 @@
 
 function copyFiles() {
 
-	filelist=$(find . -maxdepth 1 ! -name "_*" ! -name "Brewfile" ! -name Caskfile ! -name ".git" ! -name README.md ! -name $(basename $0))
+	filelist=$(find . -maxdepth 1 ! -name "." ! -name ".git" ! -name "Brewfile" ! -name Caskfile ! -name "*.md" ! -name $(basename $0))
     mydir=$(pwd)
     # $(grep  -lib "# dotfile:" --exclude $(basename $0) *)
 
