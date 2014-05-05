@@ -6,7 +6,7 @@
 
 function copyFiles() {
 
-	filelist=$(find . -maxdepth 1 ! -name "_*" ! -name "Brewfile" ! -name Caskfile ! -name ".*" ! -name README.md ! -name $(basename $0))
+	filelist=$(find . -maxdepth 1 ! -name "_*" ! -name "Brewfile" ! -name Caskfile ! -name ".git" ! -name README.md ! -name $(basename $0))
     mydir=$(pwd)
     # $(grep  -lib "# dotfile:" --exclude $(basename $0) *)
 
@@ -15,7 +15,7 @@ function copyFiles() {
  		echo "Processing: $mydir / $f"
  		file=$(basename $f)
  		# cp  ${mydir}/${file} ~/.${file}
- 		rsync  -av --no-perms ${mydir}/${file} ~/.${file}
+ 		rsync  -av --no-perms ${mydir}/${file} ~/${file}
  		# do something on $f
 	done
 
