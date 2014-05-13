@@ -14,7 +14,7 @@ To copy dotfiles from repository to home directory, `cd` into your local `.dotfi
 (The swich -f force overwrite dotfiles)
 
 ```bash
-./bootstrap.sh -f
+./bootstrap.sh -o
 ```
 
 Alternatively, to update while avoiding the confirmation prompt:
