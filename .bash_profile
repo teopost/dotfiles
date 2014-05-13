@@ -7,8 +7,12 @@
 
 export PATH="$HOME/bin:$PATH"
 
+# Set terminal colours
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# Increase history 
+export HISTFILESIZE=5000
 
 if [ -d "$HOME/bin" ]; then
   PATH="$HOME/bin:$PATH"
