@@ -19,6 +19,7 @@ if [ -d "$HOME/bin" ]; then
 fi
 
 alias l='ls -lisa'
+alias iorder='cd /Users/teopost/Documents/Work/iOrder'
 
 function lazygit() {
     git add .
