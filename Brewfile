@@ -15,6 +15,7 @@ install sshfs
 install mackup
 install ssh-copy-id
 install csv-fix
+install freetds
 
 # Remove outdated versions from the cellar
 cleanup
