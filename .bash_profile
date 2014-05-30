@@ -24,7 +24,7 @@ alias iorder='cd /Users/teopost/Documents/Work/iOrder'
 function push-iorder-wiki() {
     git add .
     git commit -a -m "$1"
-    git push
+    git push foobar gh-pages
 }
 
 
