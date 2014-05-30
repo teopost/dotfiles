@@ -21,6 +21,13 @@ fi
 alias l='ls -lisa'
 alias iorder='cd /Users/teopost/Documents/Work/iOrder'
 
+function push-iorder-wiki() {
+    git add .
+    git commit -a -m "$1"
+    git push
+}
+
+
 function lazygit() {
     git add .
     git commit -a -m "$1"
