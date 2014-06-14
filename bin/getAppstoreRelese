@@ -40,11 +40,11 @@ def header(title):
   print title
   print\
   #print len(title) * '-'
-  print 'Application'.ljust(15, ' ') + ' | ' + 'Release'.ljust(9,' ') + ' | ' + 'Date'.ljust(16,' ') + ' | '
+  print 'Application'.ljust(18, ' ') + ' | ' + 'Release'.ljust(9,' ') + ' | ' + 'Date'.ljust(16,' ') + ' | '
   print '-' * 60
 
 def body(appName, appRel, appDate):
-    print appName.ljust(15, ' ') + ' | ' + appRel.ljust(9,' ') + ' | ' + appDate.ljust(16,' ') + ' | ' + bar(appRel).ljust(15,' ') 
+    print appName.ljust(18, ' ') + ' | ' + appRel.ljust(9,' ') + ' | ' + appDate.ljust(16,' ') + ' | ' + bar(appRel).ljust(15,' ') 
 
 # Main
 # -----
@@ -61,11 +61,25 @@ iOrderApps = [
 
 iCalcioAppIOS = [
   "https://itunes.apple.com/it/app/icesena/id400463494&mt=8",
+  "https://itunes.apple.com/it/app/irossoneri/id430836283?mt=8",
+  "https://itunes.apple.com/it/app/inapoletani/id492698557&mt=8",
+  "https://itunes.apple.com/it/app/iatalanta-fc/id671839228?mt=8",
+  "https://itunes.apple.com/it/app/iromanisti/id672205172?mt=8",
+  "https://itunes.apple.com/it/app/jvts/id671813861&mt=8",
+  "https://itunes.apple.com/it/app/icataniacalcio/id410610802&mt=8",
+  "https://itunes.apple.com/it/app/ifiorentina-calcio/id411642947&mt=8",
 ]
 
 iCalcioAppANDROID = [
   "https://play.google.com/store/apps/details?id=forzaCesena.apexnet.it",
+  "https://play.google.com/store/apps/details?id=it.apexnet.app.calcio.forzainter",
+  "https://play.google.com/store/apps/details?id=it.apexnet.app.calcio.alecatania",
+  "https://play.google.com/store/apps/details?id=it.apexnet.app.calcio.magicaroma",
+  "https://play.google.com/store/apps/details?id=it.apexnet.calcio.app.forzaBrescia",
 ]
+
+
+
 
 header('iOrder')
 for app in iOrderApps:
@@ -81,3 +95,5 @@ header('iCalcio Android')
 for app in iCalcioAppANDROID:
     appName, appRel, appDate = getAppdataANDROID(app)
     body(appName, appRel, appDate) 
+
+print
