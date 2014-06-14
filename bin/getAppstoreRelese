@@ -1,0 +1,83 @@
+#!/usr/bin/env python
+
+# Test your regular expression here:  https://pythex.org/
+
+import urllib2
+import re
+import sys
+
+def getAppdataIOS(urlstring):
+  src=urllib2.urlopen(urlstring).read()
+  regexp='<h1>(?P<titolo>.*?)</h1>(.*)ato: </span>(?P<dtr>.*?)</li>(.*)Versione: </span>(?P<versione>.*?)\</li\>'
+  
+  tok = re.search(regexp, src, re.S|re.I)
+
+  tit = tok.group("titolo").strip()
+  ver = tok.group("versione").strip()
+  dtr = tok.group("dtr").strip()
+
+  return tit, ver, dtr
+
+def getAppdataANDROID(urlstring):
+  src=urllib2.urlopen(urlstring).read()
+  regexp='itemprop="name"> <div>(?P<titolo>.*?)</div>(.*)datePublished">(?P<dtr>.*?)</div>(.*)softwareVersion">(?P<versione>.*?)</div>'
+  
+  tok = re.search(regexp, src, re.S|re.I)
+
+  tit = tok.group("titolo").strip()
+  ver = tok.group("versione").strip()
+  dtr = tok.group("dtr").strip()
+
+  return tit, ver, dtr
+
+
+def bar(versione):
+  rels = versione.split(".")
+  return '*' * int(rels[1])
+
+def header(title):
+  print ''
+  print title
+  print\
+  #print len(title) * '-'
+  print 'Application'.ljust(15, ' ') + ' | ' + 'Release'.ljust(9,' ') + ' | ' + 'Date'.ljust(16,' ') + ' | '
+  print '-' * 60
+
+def body(appName, appRel, appDate):
+    print appName.ljust(15, ' ') + ' | ' + appRel.ljust(9,' ') + ' | ' + appDate.ljust(16,' ') + ' | ' + bar(appRel).ljust(15,' ') 
+
+# Main
+# -----
+
+iOrderApps = [
+  "https://itunes.apple.com/it/app/ib/id544373413?mt=8",
+  "https://itunes.apple.com/it/app/igamma/id417013645?mt=8",
+  "https://itunes.apple.com/it/app/izeta/id700840887?mt=8",
+  "https://itunes.apple.com/it/app/icommerce/id567772952?mt=8",
+  "https://itunes.apple.com/it/app/diwine/id838123903?mt=8",
+  "https://itunes.apple.com/it/app/wtrendy/id642932906?mt=8",
+  "https://itunes.apple.com/it/app/ibiz/id871060765?mt=8",
+]
+
+iCalcioAppIOS = [
+  "https://itunes.apple.com/it/app/icesena/id400463494&mt=8",
+]
+
+iCalcioAppANDROID = [
+  "https://play.google.com/store/apps/details?id=forzaCesena.apexnet.it",
+]
+
+header('iOrder')
+for app in iOrderApps:
+    appName, appRel, appDate = getAppdataIOS(app)
+    body(appName, appRel, appDate)
+ 
+header('iCalcio')
+for app in iCalcioAppIOS:
+    appName, appRel, appDate = getAppdataIOS(app)
+    body(appName, appRel, appDate)
+
+header('iCalcio Android')
+for app in iCalcioAppANDROID:
+    appName, appRel, appDate = getAppdataANDROID(app)
+    body(appName, appRel, appDate) 
