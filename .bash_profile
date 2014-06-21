@@ -11,6 +11,11 @@ export PATH="$HOME/bin:$PATH"
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
+# export MIGRATIONS_HOME=/usr/local/mybatis/mybatis-migrations-3.2.0/
+# export MIGRATIONS=$MIGRATIONS_HOME/bin
+# export PATH=$MIGRATIONS:$PATH
+
+
 # Increase history 
 export HISTFILESIZE=5000
 
