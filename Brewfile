@@ -28,6 +28,7 @@ install libssh2
 install lzo
 install mackup
 install p7zip
+install q
 install s-lang
 install ssh-copy-id
 install sshfs
