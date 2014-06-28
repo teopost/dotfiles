@@ -26,6 +26,7 @@ Alternatively, to update while avoiding the confirmation prompt:
 ### Install Homebrew formulae
 
 When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course):
+This file can also generated from genBrewfile.sh
 
 ```bash
 brew bundle ~/.dotfiles/Brewfile
