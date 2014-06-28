@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 # Test your regular expression here:  https://pythex.org/
 
@@ -24,27 +25,43 @@ def getAppdataANDROID(urlstring):
   
   tok = re.search(regexp, src, re.S|re.I)
 
-  tit = tok.group("titolo").strip()
+  #tit = tok.group("titolo").strip()
+ 
+  tit = tok.group("titolo").strip().replace("è","e'")
   ver = tok.group("versione").strip()
   dtr = tok.group("dtr").strip()
+
+  dtr = dtr.replace("gennaio","/01/")
+  dtr = dtr.replace("febbraio","/02/")
+  dtr = dtr.replace("marzo","/03/")
+  dtr = dtr.replace("aprile","/04/")
+  dtr = dtr.replace("maggio","/05/")
+  dtr = dtr.replace("giugno","/06/")
+  dtr = dtr.replace("luglio","/07/")
+  dtr = dtr.replace("agosto","/08/")
+  dtr = dtr.replace("settembre","/09/")
+  dtr = dtr.replace("ottobre","/10/")
+  dtr = dtr.replace("novembre","/11/")
+  dtr = dtr.replace("dicembre","/12/")
+  dtr = dtr.replace(" ","")
 
   return tit, ver, dtr
 
 
 def bar(versione):
   rels = versione.split(".")
-  return '*' * int(rels[1])
+  return '*' * int(rels[0]) + "-" * int(rels[1])
 
 def header(title):
   print ''
   print title
   print\
   #print len(title) * '-'
-  print 'Application'.ljust(18, ' ') + ' | ' + 'Release'.ljust(9,' ') + ' | ' + 'Date'.ljust(16,' ') + ' | '
-  print '-' * 60
+  print 'Application'.ljust(18, ' ') + ' | ' + 'Release'.ljust(8,' ') + ' | ' + 'Date'.ljust(10,' ') + ' | '
+  print '-' * 44
 
 def body(appName, appRel, appDate):
-    print appName.ljust(18, ' ') + ' | ' + appRel.ljust(9,' ') + ' | ' + appDate.ljust(16,' ') + ' | ' + bar(appRel).ljust(15,' ') 
+    print appName.ljust(18, ' ') + ' | ' + appRel.ljust(8,' ') + ' | ' + appDate.ljust(10,' ') + ' | ' + bar(appRel).ljust(15,' ') 
 
 # Main
 # -----
@@ -86,7 +103,7 @@ for app in iOrderApps:
     appName, appRel, appDate = getAppdataIOS(app)
     body(appName, appRel, appDate)
  
-header('iCalcio')
+header('iCalcio iOS')
 for app in iCalcioAppIOS:
     appName, appRel, appDate = getAppdataIOS(app)
     body(appName, appRel, appDate)
