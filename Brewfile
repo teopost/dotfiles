@@ -27,6 +27,7 @@ install hub
 install libssh2
 install lzo
 install mackup
+install ngrok
 install p7zip
 install q
 install s-lang
