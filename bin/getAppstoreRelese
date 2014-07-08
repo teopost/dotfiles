@@ -96,7 +96,9 @@ iCalcioAppANDROID = [
 ]
 
 
-
+iUniversity = [
+  "https://itunes.apple.com/it/app/ibocconi/id439889963?mt=8",
+]
 
 header('iOrder')
 for app in iOrderApps:
@@ -111,6 +113,11 @@ for app in iCalcioAppIOS:
 header('iCalcio Android')
 for app in iCalcioAppANDROID:
     appName, appRel, appDate = getAppdataANDROID(app)
+    body(appName, appRel, appDate) 
+
+header('iUniversity Bocconi')
+for app in iUniversity:
+    appName, appRel, appDate = getAppdataIOS(app)
     body(appName, appRel, appDate) 
 
 print
