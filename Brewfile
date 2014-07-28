@@ -14,6 +14,7 @@ install bash-completion
 install brew-cask
 install csshx
 install csv-fix
+install dos2unix
 install emacs
 install ffmpeg
 install freetds
@@ -27,6 +28,7 @@ install hub
 install libssh2
 install lzo
 install mackup
+install megacmd
 install ngrok
 install p7zip
 install q

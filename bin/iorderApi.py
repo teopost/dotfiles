@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
 # http://am.apexnet.it/api_sonnleonardo/v1/progetti/ib.sonnleonardo/clientiPaginazione/doc_test?&offset=1&limit=10&count=0
 # https://github.com/Apex-net/iOrder/blob/master/src/igamma/AppDelegate%2BRestKit.m
 # https://github.com/Apex-net/iOrder/tree/3.3.0/src/igamma/AppDelegate%2BRestKit.m
@@ -72,7 +76,7 @@ print "Read from github..."
 # Ramo master
 # git='https://raw.github.com/Apex-net/iOrder/master/src/igamma/AppDelegate+RestKit.m?token=2573389__eyJzY29wZSI6IlJhd0Jsb2I6QXBleC1uZXQvaU9yZGVyL21hc3Rlci9zcmMvaWdhbW1hL0FwcERlbGVnYXRlK1Jlc3RLaXQubSIsImV4cGlyZXMiOjEzODU2NDYyNjZ9--497d6f068d8c1dc48c4b7255be16e58f0e2b1bc0'
 # Ramo 3.3.0
-git='https://raw.githubusercontent.com/Apex-net/iOrder/master/src/igamma/AppDelegate+RestKit.m?token=2573389__eyJzY29wZSI6IlJhd0Jsb2I6QXBleC1uZXQvaU9yZGVyL21hc3Rlci9zcmMvaWdhbW1hL0FwcERlbGVnYXRlK1Jlc3RLaXQubSIsImV4cGlyZXMiOjEzOTk5MDIwMjd9--0f044f885ee7996cb3b23bf878b2f0b8c94d82d2'
+git='https://raw.githubusercontent.com/Apex-net/iOrder/master/src/igamma/AppDelegate+RestKit.m?token=2573389__eyJzY29wZSI6IlJhd0Jsb2I6QXBleC1uZXQvaU9yZGVyL21hc3Rlci9zcmMvaWdhbW1hL0FwcERlbGVnYXRlK1Jlc3RLaXQubSIsImV4cGlyZXMiOjE0MDcxNDgzNDN9--5eefa0966daddbf223857cbf7b279fb64cdff622'
 print git
 iOrderSrc=response1=urllib2.urlopen(git).read()
 
