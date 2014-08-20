@@ -7,14 +7,14 @@
 Clone the repository in `~/.dotfiles`. Launch the bootstrapper script copy the files to your home folder.
 
 ```bash
-git clone https://github.com/teopost/dotfiles.git .dotfiles && cd .dotfiles && ./bootstrap.sh
+git clone https://github.com/teopost/dotfiles.git .dotfiles && cd .dotfiles
 ```
 
 To copy dotfiles from repository to home directory, `cd` into your local `.dotfiles` repository and then:
 (The swich -f force overwrite dotfiles)
 
 ```bash
-./bootstrap.sh -o
+./bootstrap.sh -f
 ```
 
 Alternatively, to update while avoiding the confirmation prompt:
