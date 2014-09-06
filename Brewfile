@@ -25,6 +25,7 @@ install git
 install git-crypt
 install gnutls
 install googlecl
+install httpry
 install hub
 install jpeg
 install libssh2

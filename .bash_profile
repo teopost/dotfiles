@@ -12,7 +12,6 @@ export PATH="/usr/local/bin:$PATH"
 export CLICOLOR=1
 #export LSCOLORS=GxFxCxDxBxegedabagaced
 export LS_COLORS="di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:"
-
 export GREP_OPTIONS='--color=auto'
 
 
@@ -44,7 +43,7 @@ fi
 # ------------------------------------------------------------------------------
 function __ps1_newline_login {
     if [[ -n "${PS1_NEWLINE_LOGIN:-}" ]]; then
-        echo
+        echo 
     else
         PS1_NEWLINE_LOGIN=true
     fi
@@ -62,6 +61,12 @@ export PS1="\[\e[32m\]➜  \[\e[34m\]\W:\[\e[31m\]\$(__git_ps1 \" (%s)\")\[\e[0m
 # Functions
 # ------------------------------------------------------------------------------
 
+# Preview manpages in pdf format
+pman() {
+    man -t ${@} | open -f -a /Applications/Preview.app/
+}
+
+# Internet search form comand-line
 function google {
     local search=""
     for term in "$@"; do
@@ -105,3 +110,6 @@ function myip() {
 # ------------------------------------------------------------------------------
 alias l='ls -lisa'
 alias iorder='cd /Users/teopost/Documents/Work/iOrder'
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
