@@ -24,7 +24,6 @@ install gibo
 install git
 install git-crypt
 install gnutls
-install googlecl
 install httpry
 install hub
 install jpeg
@@ -34,6 +33,7 @@ install mackup
 install megacmd
 install mitmproxy
 install ngrok
+install osxfuse
 install p7zip
 install pixman
 install q
