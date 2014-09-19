@@ -110,6 +110,7 @@ function myip() {
 # ------------------------------------------------------------------------------
 alias l='ls -lisa'
 alias iorder='cd /Users/teopost/Documents/Work/iOrder'
+alias spider='wget --force-directories --recursive --no-parent --no-clobber --convert-links --adjust-extension'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
