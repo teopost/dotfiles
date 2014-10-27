@@ -10,6 +10,7 @@ upgrade
 
 # Install brew packages
 
+install ack
 install bash-completion
 install brew-cask
 install csshx
@@ -18,12 +19,13 @@ install dos2unix
 install emacs
 install ffmpeg
 install freetds
-install fuse4x
+install fuse4x-kext
 install ghi
 install gibo
 install git
 install git-crypt
 install gnutls
+install httperf
 install httpry
 install hub
 install jpeg
@@ -33,7 +35,7 @@ install mackup
 install megacmd
 install mitmproxy
 install ngrok
-install osxfuse
+install nmap
 install p7zip
 install pixman
 install q
