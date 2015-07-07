@@ -114,3 +114,7 @@ alias spider='wget --force-directories --recursive --no-parent --no-clobber --co
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+export ORACLE_HOME=/Applications/instantclient
+export LD_LIBRARY_PATH=$ORACLE_HOME
+export DYLD_LIBRARY_PATH=$ORACLE_HOME
