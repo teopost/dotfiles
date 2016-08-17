@@ -38,23 +38,40 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 
+function weeknumber {
+ /bin/date +%V
+}
+
 # ------------------------------------------------------------------------------
-# Pimp my prompt
+# Add a new line on every prompt
 # ------------------------------------------------------------------------------
 function __ps1_newline_login {
     if [[ -n "${PS1_NEWLINE_LOGIN:-}" ]]; then
-        echo 
+        echo
     else
         PS1_NEWLINE_LOGIN=true
     fi
 }
 
-PROMPT_COMMAND="${PROMPT_COMMAND}__ps1_newline_login;"
+#PROMPT_COMMAND="${PROMPT_COMMAND} && __ps1_newline_login"
 
+# ------------------------------------------------------------------------------
+# Add git branch info on every prompt inside git repository folder
+# ------------------------------------------------------------------------------
 export GIT_PS1_SHOWDIRTYSTATE=true `# show unstaged (*) and staged (+) changes`
 
-# export PS1="\h:\W \u\$ "
-export PS1="\[\e[32m\]➜  \[\e[34m\]\W:\[\e[31m\]\$(__git_ps1 \" (%s)\")\[\e[0m\]  "
+# ------------------------------------------------------------------------------
+# Add colors to my prompt
+# ------------------------------------------------------------------------------
+#export PS1="\h:\W \u\$ "
+source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
+#PS1="  \h:\W \u\$(__git_ps1 \" (%s) \")\$ "
+
+#PS1="\[\e[32m\]➜ \$ \W \u\$(__git_ps1 \" (%s) \")\$ "
+
+#PS1="\[\e[32m\]➜ \$ \[\e[34m\]\W:\[\e[31m\]\$(__git_ps1 \" (%s)\")\[\e[0m\]  "
+
+PS1="\[\e[32m\]➜  \[\e[34m\]\W:\[\e[31m\]\$(__git_ps1 \" (%s)\")\[\e[0m\]  "
 
 
 # ------------------------------------------------------------------------------
@@ -109,12 +126,18 @@ function myip() {
 # Alias
 # ------------------------------------------------------------------------------
 alias l='ls -lisa'
+alias flushdns='sudo killall -HUP mDNSResponder'
 alias iorder='cd /Users/teopost/Documents/Work/iOrder'
 alias spider='wget --force-directories --recursive --no-parent --no-clobber --convert-links --adjust-extension'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-export ORACLE_HOME=/Applications/instantclient
-export LD_LIBRARY_PATH=$ORACLE_HOME
+export ORACLE_HOME=/Users/teopost/oracle/instantclient_11_2
+#export ORACLE_HOME=/opt/oracle/instantclient_11_2
 export DYLD_LIBRARY_PATH=$ORACLE_HOME
+export SQLPATH=$ORACLE_HOME
+export LD_LIBRARY_PATH=$ORACLE_HOME
+export PATH=$PATH:$ORACLE_HOME
+
+source dnvm.sh
