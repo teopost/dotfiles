@@ -4,9 +4,8 @@
 # Add ./bin to path
 if [ -d "$HOME/bin" ]; then
   export PATH="$HOME/bin:$PATH"
+  export PATH="/usr/local/bin:$PATH"
 fi
-
-export PATH="/usr/local/bin:$PATH"
 
 # Set terminal colours
 export CLICOLOR=1
@@ -83,24 +82,6 @@ pman() {
     man -t ${@} | open -f -a /Applications/Preview.app/
 }
 
-# Internet search form comand-line
-function google {
-    local search=""
-    for term in "$@"; do
-        if [[ -z "${search:-}" ]]; then
-            search="$term"
-        else
-            search="$search%20$term"
-        fi
-    done
-    if [[ -z "${search:-}" ]]; then
-        echo 'Usage: google something' >&2
-        return 1
-    else
-        open "http://www.google.com/?q=$search";
-    fi
-}
-
 function serve {
     python -m SimpleHTTPServer "${1:-8080}"
 }
@@ -118,8 +99,20 @@ function lazygit() {
 }
 
 function myip() {
-    echo "wan: " $(curl -s ip.appspot.com)
+    echo "wan: " $(curl -s ipinfo.io/ip)
     echo "lan: " $(ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d " " -f2)
+}
+
+# ------------------------------------------------------------------------------
+# Open the Finder directory in the terminal
+# ------------------------------------------------------------------------------
+function cdf() {
+    target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
+    if [ "$target" != "" ]; then
+        cd "$target"; pwd
+    else
+        echo 'No Finder window found' >&2
+    fi
 }
 
 # ------------------------------------------------------------------------------
@@ -130,14 +123,5 @@ alias flushdns='sudo killall -HUP mDNSResponder'
 alias iorder='cd /Users/teopost/Documents/Work/iOrder'
 alias spider='wget --force-directories --recursive --no-parent --no-clobber --convert-links --adjust-extension'
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-export ORACLE_HOME=/Users/teopost/oracle/instantclient_11_2
-#export ORACLE_HOME=/opt/oracle/instantclient_11_2
-export DYLD_LIBRARY_PATH=$ORACLE_HOME
-export SQLPATH=$ORACLE_HOME
-export LD_LIBRARY_PATH=$ORACLE_HOME
-export PATH=$PATH:$ORACLE_HOME
-
-source dnvm.sh
+# Aggiungo le variabili d'ambiente di Oracle
+source ~/oracle/bash_profile
